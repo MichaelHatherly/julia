@@ -126,8 +126,19 @@ makedocs(
 )
 
 if "deploy" in ARGS
+    # Only deploy docs from 64bit Linux to avoid committing multiple versions of the same
+    # docs from different workers.
+    (Sys.ARCH === :x86_64 && Sys.KERNEL === :Linux) || return
+
+    # Since the `.travis.yml` config specifies `language: cpp` and not `language: julia` we
+    # need to manually set the version of Julia that we are deploying the docs from.
+    ENV["TRAVIS_JULIA_VERSION"] = "nightly"
+
+    ENV["TRAVIS_PULL_REQUEST"] = "false"
+
     deploydocs(
-        repo = "github.com/JuliaLang/julia.git",
+        repo = "github.com/MichaelHatherly/julia.git",
+        latest = "mh/master-test",
         target = "_build/html/en",
         dirname = "en",
         deps = nothing,
