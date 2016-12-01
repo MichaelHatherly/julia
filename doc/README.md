@@ -1,44 +1,22 @@
-Julia Documentation README
-==========================
+# Julia Documentation README
 
-Julia's documentation is written in reStructuredText, a good reference for which
-is the [Documenting Python](http://docs.python.org/devguide/documenting.html)
-chapter of the Python Developer's Guide.
+Julia's documentation is written in Markdown. A reference of all supported syntax can
+be found at http://docs.julialang.org/en/latest/manual/documentation/#markdown-syntax.
 
+## Requirements
 
-Prerequisites for building the documentation
---------------------------------------------
+The only dependancy required to build Julia's documentation, apart from Julia
+itself, is the [Documenter.jl](https://github.com/JuliaDocs/Documenter.jl). This
+package is available in the offical METADATA.jl repository and can be installed
+via `Pkg.add("Documenter")`.
 
-The documentation is built using [Sphinx](http://sphinx.pocoo.org/) and LaTeX.
-On ubuntu, you'll need the following packages installed:
+## Building
 
-    latex-cjk-all
-    texlive
-    texlive-lang-cjk
-    texlive-latex-extra
+To build Julia's documentation run
 
-On OS X, you can install MacTex using the GUI installer
+```sh
+$ make docs
+```
 
+which will generate a complete HTML website in the `doc/_build/` directory.
 
-Building the documentation
---------------------------
-
-Build the documentation by running
-
-    $ make html
-    $ make latexpdf
-
-
-File layout
------------
-
-    conf.py             Sphinx configuration
-    stdlib/             Julia standard library documentation
-    UNDOCUMENTED.rst    Undocumented functions (to be filled in and copied to
-                        the correct location in stdlib/)
-
-Sphinx extensions and theme
----------------------------
-The extensions to Sphinx and the theme are in the
-https://github.com/JuliaLang/JuliaDoc repository, and can also be used to style
-package documentation.
