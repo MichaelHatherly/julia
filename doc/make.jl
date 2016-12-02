@@ -4,6 +4,7 @@ Pkg.init()
 write(Pkg.dir("REQUIRE"), "Documenter")
 Pkg.resolve()
 Pkg.update()
+Pkg.checkout("Documenter")
 
 using Documenter
 
@@ -137,6 +138,7 @@ if "deploy" in ARGS
     deploydocs(
         repo = "github.com/JuliaLang/julia.git",
         target = "_build/html/en",
+        latest = "mh/master-test",
         dirname = "en",
         deps = nothing,
         make = nothing,
