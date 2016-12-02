@@ -45,10 +45,6 @@ cache:
     - $TRAVIS_BUILD_DIR/deps/srccache
     - $TRAVIS_BUILD_DIR/deps/scratch
     - $TRAVIS_BUILD_DIR/deps/usr-staging
-branches:
-  only:
-    - master
-    - /release-.*/
 notifications:
     email: false
     irc:
