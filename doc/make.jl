@@ -136,7 +136,7 @@ if "deploy" in ARGS
     ENV["TRAVIS_JULIA_VERSION"] = "nightly"
 
     deploydocs(
-        repo = "github.com/JuliaLang/julia.git",
+        repo = "github.com/MichaelHatherly/julia.git",
         target = "_build/html/en",
         latest = "mh/master-test",
         dirname = "en",
